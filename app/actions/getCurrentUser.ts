@@ -11,15 +11,29 @@ export default async function getCurrentUser() {
   try {
     const session = await getSession();
 
-    if (!session?.user?.email) {
-      return null;
-    }
+    //if (!session?.user?.email) {
+      //return null;
+    //}
 
-    const currentUser = await prisma.user.findUnique({
-      where: {
-        email: session.user.email as string,
-      },
-    });
+    //const currentUser = await prisma.user.findUnique({
+      //where: {
+       // email: session.user.email as string,
+      //},
+      //});
+
+    // creer le user par moi meme pour bypass
+    
+      const currentUser = 
+      {
+         id : "1",
+          name: "Test Bypass",
+            email: "Test@test.com",
+            emailVerified: new Date(),
+            image: "",
+            hashedPassword: "Test123",
+            createdAt: new Date(),
+            updatedAt: new Date(),
+      }
 
     if (!currentUser) {
       return null;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import { Plus } from "@/assets/icons";
+import { Check, Plus, ArrowRight } from "@/assets/icons";
 import Filter from "./Filter";
 
 import { SafeUser } from "@/types";
@@ -9,6 +9,7 @@ import { SafeUser } from "@/types";
 import { useAppDispatch } from "@/libs/redux/hooks";
 import { onOpen as onInvoiceOpen } from "@/libs/redux/features/invoice-slice";
 import { onOpen as onLoginModalOpen } from "@/libs/redux/features/modals/login-modal-slice";
+import Link from "next/link";
 
 interface HeaderControlsProps {
   currentUser?: SafeUser | null;
@@ -54,6 +55,21 @@ const HeaderControls: React.FC<HeaderControlsProps> = ({
             New <span className="hidden sm:inline">Invoice</span>
           </div>
         </button>
+        {/* Rajout du bouton projects*/}
+       <Link
+        href={`/projects`}
+      >
+        <button
+          className="flex gap-2 sm:gap-4 items-center p-1.5 pr-3 sm:p-2 sm:pr-4 text-xs font-bold capitalize rounded-full transition text-white bg-[#7C5DFA] hover:bg-[#9277FF]"
+        >
+          <span className="p-2.5 bg-white rounded-full">
+            <ArrowRight />
+          </span>
+          <div>
+             Projects
+          </div>
+        </button>
+        </Link>
       </div>
     </div>
   );

@@ -17,3 +17,13 @@ export type SafeUser = Omit<
   updatedAt: string;
   emailVerified: string | null;
 };
+
+//Rajout de SafeProject pour que TypeScript accepte les projects avec ce Type
+
+export type SafeProject = {
+  _id: string;
+  name: string;
+  project_manager: string;
+  foreman_phone: string;
+  end_date: string;
+};
